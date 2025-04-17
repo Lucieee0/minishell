@@ -6,7 +6,7 @@
 #    By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/14 09:54:18 by lusimon           #+#    #+#              #
-#    Updated: 2025/04/16 23:01:56 by lusimon          ###   ########.fr        #
+#    Updated: 2025/04/17 16:19:41 by lusimon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,12 @@ OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 # === Build Rules ===
 
 all: $(LIBFT) $(NAME)
+
+download_resources:
+	git submodule update --init --remote --recursive 
+#be careful with this command it doesnt update if you delete the folder
+libs: $(LIBFT)
+setup: art download_resources libs
 
 $(LIBFT):
 	@if [ ! -d "$(LIBS_DIR)" ]; then \
@@ -76,3 +82,4 @@ help:
 	@echo "  make help     Show this help message"
 
 .PHONY: all clean fclean re help
+.PHONY: all clean fclean re help setup download_resources libs

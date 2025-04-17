@@ -1,0 +1,31 @@
+# === OS-specific ===
+.DS_Store
+Thumbs.db
+
+# === Build output ===
+minishell              # Your final compiled binary
+obj/                   # Object file directory
+
+# === Object files ===
+*.o
+*.a
+
+# === Editor files ===
+*.swp                  # Vim swap files
+*.swo
+*.tmp
+*~                    # Backup files from editors
+.vscode/
+.idea/
+*.log
+
+# === Submodule artifacts (optional) ===
+minishell_lib/libminishell_lib.a
+minishell_lib/obj/
+minishell_lib/*.o
+minishell_lib/*.a
+
+# === Coverage / debug (if applicable) ===
+*.gcno
+*.gcda
+*.gcov
