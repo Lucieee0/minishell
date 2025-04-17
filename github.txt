@@ -1,0 +1,367 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    github.txt                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/04/17 14:16:42 by lusimon           #+#    #+#              #
+#    Updated: 2025/04/17 15:48:47 by lusimon          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+No direct commit allowed on the main branch 
+Eventually propose those changes back to the original via a pull request (PR)
+
+Forking: Creates a full copy on your GitHub account, and then you can clone that if you want.
+
+Sharing a repo (like sending someone a GitHub link or inviting them as a collaborator) doesn’t create a fork unless that person chooses to fork it.
+
+I am trying to understand shared repo and how does fork branches workI have a specific question. If I share my repo with someone but we don't create branches. Let's say we both work on the main branch Can this work?ModifierYes, you and your collaborator can both work on the main branch of a shared repository, but this approach comes with some important considerations.
+When you share a repository and both work directly on the main branch:
+
+You'll both be able to push changes to the same branch
+Any conflicts will need to be resolved when they occur
+There's no isolation between your work streams
+
+This workflow can work for small teams or simple projects, but it has these potential challenges:
+
+If you both edit the same files simultaneously, you'll frequently encounter merge conflicts
+There's no review process before changes go into the main codebase
+It's harder to work on separate features without affecting each other
+If someone pushes broken code, it immediately affects everyone
+
+Most development teams prefer using branches (feature branches, development branches, etc.) because they provide:
+
+Isolation for work-in-progress features
+Clear review boundaries via pull/merge requests
+The ability to maintain a stable main branch
+
+If you do choose to work directly on the main branch, I'd recommend:
+
+Communicating frequently about what files you're each working on
+Pulling changes often to stay in sync
+Committing smaller, focused changes
+Consider using tools like GitHub's co-authoring feature to track contributions
+
+Would you like me to explain how to set up a more structured branching strategy that might work better for your collaboration?RéessayerLyes pleaseModifierStructured Git Branching Strategy
+Here's a more structured branching strategy that will help you collaborate effectively:
+The Git Flow Model (Simplified)
+
+Main/Master Branch
+
+Always contains stable, production-ready code
+No direct commits allowed here
+Changes only come through reviewed pull requests
+
+
+Development Branch
+
+Created from main
+Serves as the integration branch for features
+More frequently updated than main
+
+
+Feature Branches
+
+Created from development branch
+Used for individual features or bugfixes
+Naming convention: feature/description-of-change or fix/bug-description
+
+
+
+How to Implement This Strategy
+Setting Up the Repository Structure
+bash# Clone the repository
+git clone https://github.com/username/repo.git
+cd repo
+
+# Create development branch from main
+git checkout main
+git checkout -b development
+git push -u origin development
+Workflow for Each Collaborator
+bash# Start a new feature
+git checkout development
+git pull  # Get latest changes
+git checkout -b feature/my-new-feature
+
+# Work on your feature, commit changes
+git add .
+git commit -m "Implement feature xyz"
+
+# Push your branch to the remote repository
+git push -u origin feature/my-new-feature
+Merging Changes
+
+On GitHub/GitLab/Bitbucket, create a pull request from your feature branch to development
+Have your collaborator review the code
+After approval, merge the pull request
+Periodically, merge development into main when you have a stable set of features
+
+Best Practices
+
+Pull changes from development frequently to avoid large merge conflicts
+Write descriptive commit messages
+Keep pull requests focused on a single feature or fix
+Use issues or project boards to track work
+Agree on coding standards beforehand
+
+For Smaller Projects
+If this seems too complex for your needs, you could use a simpler model:
+
+Both work on separate feature branches
+Merge directly to main after review
+No development branch needed
+
+Would you like me to explain any part of this in more detail or show you how to set up branch protection rules to enforce this workflow?RéessayerClaude n'a pas encore la capacité d'exécuter le code qu'il génère.LOkay we are doing a smaller project and we are only two in the team 
+we discuss things regularly there is no communication issues 
+Can you give me a list of commands and explanation needed for a simpler model? 
+I think we could both have access to the main (now at the beginning) to merge our current code. And then each of us will work on his own branchModifierSimple Git Branching Strategy for a Two-Person Team
+Here's a simpler branching model with the essential commands and explanations for your small team:
+Initial Setup
+bash# Clone the repository
+git clone https://github.com/username/repo.git
+cd repo
+
+# Both initially work on main to establish the core codebase
+# Once the initial structure is in place, switch to feature branches
+Daily Workflow
+Creating a feature branch
+bash# Make sure main is up-to-date
+git checkout main
+git pull
+
+# Create and switch to your feature branch
+git checkout -b your-name/feature-name
+Working on your feature
+bash# Make changes to files
+
+# Stage changes
+git add .  # Add all changed files
+# OR
+git add specific-file.js  # Add specific files
+
+# Commit changes
+git commit -m "Descriptive message about your changes"
+
+# Push your branch to remote (first time)
+git push -u origin your-name/feature-name
+
+# Push subsequent changes
+git push
+Merging your completed feature to main
+bash# Make sure your branch has the latest changes from main
+git checkout main
+git pull
+git checkout your-name/feature-name
+git merge main  # Resolve any conflicts here
+
+# Now, merge your feature into main
+git checkout main
+git merge your-name/feature-name
+git push
+Alternative: Merging via GitHub/GitLab UI (Recommended)
+
+Push your feature branch to remote
+Create a Pull Request (PR) on GitHub/GitLab
+Have your teammate review it
+Click "Merge" on the website
+
+Useful Commands
+bash# See what branch you're on and status of files
+git status
+
+# See branch history
+git log --oneline --graph --decorate
+
+# Discard changes to a file (dangerous!)
+git checkout -- filename
+
+# Stash changes temporarily
+git stash
+git stash pop  # Bring back stashed changes
+
+# See all branches
+git branch -a
+
+# Delete a branch locally after merging
+git branch -d branch-name
+
+# Delete a branch remotely
+git push origin --delete branch-name
+Tips for Your Workflow
+
+Name branches consistently like john/login-feature or sarah/fix-navbar
+Pull from main frequently to minimize merge conflicts
+Keep commits focused on single logical changes
+Write clear commit messages
+Consider quick video calls when resolving complex merge conflicts
+Comment your code well so your teammate understands your changes
+
+This simple approach gives you the benefits of isolated work while keeping the workflow manageable for a small team with good communication.RéessayerClaude n'a pas encore la capacité d'exécuter le code qu'il génère.Lokay now we already worked both on the same repo 
+How do I check if everything is correcyly updated to the main? 
+Branch and mainModifierTo check if everything is correctly updated between your branch and the main branch, you can follow these steps:
+bash# First, make sure you have the latest changes from the remote repository
+git fetch origin
+
+# Check the status of your current branch
+git status
+The status command will tell you if your branch is ahead, behind, or in sync with the remote.
+To compare your branch with the main branch:
+bash# See the difference between your branch and main
+git checkout your-branch-name
+git diff main
+
+# Or to see just the list of commits that differ
+git log main..HEAD --oneline
+To check if the main branch has all the latest changes:
+bash# Switch to main
+git checkout main
+
+# Update it to match the remote
+git pull origin main
+
+# Check its status
+git status
+If you want to verify specific files between branches:
+bash# Compare a specific file between branches
+git diff your-branch-name main -- path/to/file
+To see a visual representation of how branches relate:
+bash# Shows a graph of branches and commits
+git log --graph --oneline --all --decorate
+This will help you understand if your work is properly synced and if there are any changes in main that you need to incorporate into your branch, or vice versa.RéessayerClaude n'a pas encore la capacité d'exécuter le code qu'il génère.Lbut how do I know if I am in a branch or in the main?ModifierTo check which branch you're currently on, use this simple command:
+bashgit status
+The very first line of the output will tell you which branch you're on. It will say something like "On branch main" or "On branch your-branch-name".
+You can also use:
+bashgit branch
+This shows a list of all local branches, with an asterisk (*) next to your current branch.
+For an even more concise output that just shows the current branch name:
+bashgit branch --show-current
+Many developers also configure their terminal prompt to display the current git branch, which makes it immediately visible without needing to run any commands. If you're interested in setting that up, I can provide instructions for your specific terminal.RéessayerClaude n'a pas encore la capacité d'exécuter le code qu'il génère.LI don't fully understand 
+What does it mean? 
+lusimon@1-B-31 repo_minishell % git status
+On branch master
+Your branch is up to date with 'origin/master'.
+nothing to commit, working tree clean
+lusimon@1-B-31 repo_minishell % git branch
+  builtin
+  makefile
+* master
+lusimon@1-B-31ModifierBased on your output, let me explain what's happening:
+
+git status shows you're currently on the master branch (this is your main branch)
+Your master branch is up to date with the remote version ('origin/master')
+You don't have any uncommitted changes ("working tree clean")
+
+The git branch command shows you have 3 branches in your repository:
+
+builtin branch
+makefile branch
+master branch (the asterisk * shows this is your current active branch)
+
+This means:
+
+You're currently working on the master branch
+Everything is synchronized with the remote repository
+You have two other branches (builtin and makefile) that you could switch to
+
+If you want to switch to one of your other branches, you would use:
+bashgit checkout builtin
+# or
+git checkout makefile
+Is there a specific task you're trying to accomplish with your branches?RéessayerClaude n'a pas encore la capacité d'exécuter le code qu'il génère.Lso how do I merge myy builtin branch and my makefile branch to the master branch?ModifierTo merge your builtin and makefile branches into your master branch, follow these steps:
+Step 1: Make sure everything is up to date
+bash# First get the latest changes from the remote repository
+git fetch origin
+Step 2: Merge the builtin branch
+bash# First switch to master
+git checkout master
+
+# Merge the builtin branch into master
+git merge builtin
+Step 3: Resolve any conflicts (if they occur)
+If there are merge conflicts, git will tell you which files are affected. You'll need to:
+
+Open those files and look for conflict markers (<<<<<<<, =======, >>>>>>>)
+Edit the files to resolve the conflicts
+Add the resolved files with git add <filename>
+Complete the merge with git commit -m "Merge builtin branch"
+
+Step 4: Merge the makefile branch
+bash# Make sure you're still on master
+git checkout master
+
+# Merge the makefile branch
+git merge makefile
+Step 5: Push the merged changes to the remote repository
+bashgit push origin master
+Tips:
+
+It's usually best to merge one branch at a time to handle conflicts more easily
+Before merging, you might want to check what changes will be merged with: git diff master..builtin
+If things get confusing during a merge, you can abort it with: git merge --abort
+
+Would you like me to explain how to handle specific merge conflicts if they occur?RéessayerClaude n'a pas encore la capacité d'exécuter le code qu'il génère.Lyes pleaseModifierHandling Merge Conflicts
+When Git can't automatically merge branches, you'll encounter merge conflicts. Here's how to handle them step by step:
+What a Conflict Looks Like
+When you run git merge builtin and there's a conflict, you'll see something like:
+Auto-merging file.c
+CONFLICT (content): Merge conflict in file.c
+Automatic merge failed; fix conflicts and then commit the result.
+Steps to Resolve Conflicts
+1. Identify Conflicted Files
+bashgit status
+This will show files with conflicts marked as "both modified".
+2. Open Conflicted Files
+Open each conflicted file in your editor. You'll see conflict markers:
+<<<<<<< HEAD (Current change - your master branch)
+int function_name(void)
+{
+    // Your code in master
+}
+=======
+int function_name(int arg)
+{
+    // Code from builtin branch
+}
+>>>>>>> builtin (Incoming change - from the branch you're merging)
+3. Resolve Each Conflict
+Edit the file to keep the code you want and remove the conflict markers. You might:
+
+Keep your changes (master)
+Keep their changes (builtin)
+Combine both changes
+Write something completely different
+
+For example, if you want to keep both with modifications:
+cint function_name(int arg)
+{
+    // Combined code that works with both implementations
+}
+4. Mark the Conflict as Resolved
+After editing:
+bashgit add file.c
+5. Continue Until All Conflicts Are Resolved
+Check your progress with:
+bashgit status
+6. Complete the Merge
+Once all conflicts are resolved:
+bashgit commit -m "Merge builtin branch, resolve conflicts in function implementations"
+Tips for Complex Merges
+
+Use Visual Tools: If available, use git mergetool to launch a visual diff tool
+bashgit mergetool
+
+See the Different Versions: If confused about what changed, you can check:
+bash# See file in master (--ours during merge)
+git show :1:file.c
+
+# See file in branch being merged (--theirs during merge)
+git show :3:file.c
+
+Abort If Needed: If the merge becomes too complicated, you can always abort:
+bashgit merge --abort
+
+
+Would you like me to explain any specific type of conflict that you're encountering in your project?
