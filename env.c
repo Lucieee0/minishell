@@ -6,7 +6,7 @@
 /*   By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 09:50:38 by lusimon           #+#    #+#             */
-/*   Updated: 2025/04/16 16:50:03 by lusimon          ###   ########.fr       */
+/*   Updated: 2025/04/18 17:05:48 by lusimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,5 @@ void	ft_env(t_env **env_list)
 		f++;
 		i++;
 	}
+	free_array(env_arr);
 }

@@ -6,7 +6,7 @@
 /*   By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 09:49:19 by lusimon           #+#    #+#             */
-/*   Updated: 2025/04/18 15:43:25 by lusimon          ###   ########.fr       */
+/*   Updated: 2025/04/18 17:22:31 by lusimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char **recreate_env(t_env **head);
 void	ft_env(t_env **env_list);
 
 //exit.c
-void	ft_exit(void);
+void	ft_exit(t_env **env_list);
 
 //echo.c
 void	ft_echo(char *input);
@@ -90,6 +90,10 @@ void	ft_cd_home(t_env **env_list);
 void	ft_cd_parent(t_env **env_list);
 void	ft_cd_previous(t_env **env_list);
 void	ft_cd(char *input, t_env **env_list);
+
+//helper.c
+void	free_array(char **input_array);
+void	free_env(t_env **env);
 
 //mini_shell.c
 int	main(int argc, char **argv, char **env);

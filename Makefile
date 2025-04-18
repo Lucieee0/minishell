@@ -6,7 +6,7 @@
 #    By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/14 09:54:18 by lusimon           #+#    #+#              #
-#    Updated: 2025/04/18 15:39:36 by lusimon          ###   ########.fr        #
+#    Updated: 2025/04/18 17:04:49 by lusimon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ LIBDIR = -L./$(MINISHELL_LIB_DIR)
 LIBFT = $(MINISHELL_LIB_DIR)/libminishell_lib.a  # Correct
 
 # === Source / Object Management ===
-SRCS = pwd.c env.c exit.c echo.c cd_path.c cd_env_failure_free.c cd_cd.c builtin.c mini_shell.c
+SRCS = pwd.c env.c exit.c echo.c cd_path.c cd_env_failure_free.c cd_cd.c builtin.c mini_shell.c helper.c
 OBJDIR = obj
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 

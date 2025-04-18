@@ -6,7 +6,7 @@
 /*   By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 11:21:39 by lusimon           #+#    #+#             */
-/*   Updated: 2025/04/16 16:53:03 by lusimon          ###   ########.fr       */
+/*   Updated: 2025/04/18 17:22:57 by lusimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 //decrease a shell level
 //void	ft_exit()
 
-void	ft_exit(void)
+void	ft_exit(t_env **env_list)
 {
+	free_env(env_list);
 	exit(EXIT_SUCCESS);
 }
 
