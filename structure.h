@@ -6,7 +6,7 @@
 /*   By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 09:49:19 by lusimon           #+#    #+#             */
-/*   Updated: 2025/04/18 17:22:31 by lusimon          ###   ########.fr       */
+/*   Updated: 2025/04/18 19:02:24 by lusimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,9 @@ void	ft_cd_home(t_env **env_list);
 void	ft_cd_parent(t_env **env_list);
 void	ft_cd_previous(t_env **env_list);
 void	ft_cd(char *input, t_env **env_list);
+
+//export.c
+void	ft_export(t_env **env_list);
 
 //helper.c
 void	free_array(char **input_array);

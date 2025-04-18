@@ -6,7 +6,7 @@
 /*   By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 09:49:49 by lusimon           #+#    #+#             */
-/*   Updated: 2025/04/18 17:15:02 by lusimon          ###   ########.fr       */
+/*   Updated: 2025/04/18 18:59:06 by lusimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void execute_builtin(char *input, t_env **env_list, char **argv, char **envp)
 	(void)envp;
 	if (ft_strncmp(input, "env", 3) == 0)
 		ft_env(env_list);
+	else if (ft_strncmp(input, "export", 6) == 0)
+		ft_export(env_list);
 	else if (ft_strncmp(input, "pwd", 3) == 0)
 		ft_pwd();
 	else if (ft_strncmp(input, "exit", 5) == 0)
