@@ -6,7 +6,7 @@
 /*   By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 09:49:19 by lusimon           #+#    #+#             */
-/*   Updated: 2025/04/16 22:58:55 by lusimon          ###   ########.fr       */
+/*   Updated: 2025/04/18 15:43:25 by lusimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,21 @@ void	ft_echo(char *input);
 void execute_builtin(char *input, t_env **env_list, char **argv, char **envp);
 
 //cd.c
+//cd_path.c
 char	*go_home_path(t_env **env_list);
-void	update_env(t_env **env_list, char *path);
-char	*go_parent_path(t_env **env_list);
+char	*go_parent_old_path(t_env **env_list);
+char	*go_parent_new_path(t_env **env_list);
 char	*go_previous_path(t_env **env_list);
+//cd_env_failure_free.c
+void	update_env_old(char *old_path, t_env **env_list);
+void	update_env(t_env **env_list, char *path);
 void	access_failure(char *path);
 void	chdir_failure(char *path);
 void	free_input_array(char **input_array);
+//cd_cd.c
+void	ft_cd_home(t_env **env_list);
+void	ft_cd_parent(t_env **env_list);
+void	ft_cd_previous(t_env **env_list);
 void	ft_cd(char *input, t_env **env_list);
 
 //mini_shell.c
