@@ -6,7 +6,7 @@
 #    By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/10 10:50:36 by lusimon           #+#    #+#              #
-#    Updated: 2025/04/16 21:09:35 by lusimon          ###   ########.fr        #
+#    Updated: 2025/04/19 12:06:26 by lusimon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = ft_printf.a
 
 # Compiler
-CC = cc
+CC = gcc
 
 # Archiver
 AR = ar
@@ -26,8 +26,13 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_printf.c hexa_ptr.c print_char.c print_digit.c print_hexa_low.c \
 print_hexa_up.c print_pointer.c print_string.c unsigned_int.c
 
+HEADER_FILE = ft_printf.h
+
 # Object files (replace .c with .o). Compiling source files to object files
 OBJS = $(SRCS:.c=.o)
+
+# Delivery files
+DELIVERY_FILES = $(NAME)
 
 # Rule for creating object files
 .c.o:

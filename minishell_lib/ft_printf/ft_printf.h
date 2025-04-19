@@ -6,7 +6,7 @@
 /*   By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:54:49 by lusimon           #+#    #+#             */
-/*   Updated: 2024/11/12 16:18:35 by lusimon          ###   ########.fr       */
+/*   Updated: 2025/04/19 11:25:19 by lusimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdint.h>
 
 int	ft_printf(const char *format, ...);
 int	unsigned_int(unsigned int u);

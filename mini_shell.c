@@ -6,7 +6,7 @@
 /*   By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 09:51:58 by lusimon           #+#    #+#             */
-/*   Updated: 2025/04/18 17:14:07 by lusimon          ###   ########.fr       */
+/*   Updated: 2025/04/19 11:28:53 by lusimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ void check_leaks(void)
 int	main(int argc, char **argv, char **envp)
 {
 	char		*input;
-	int			i;
 	t_env *env_list = NULL;
 
-	i = argc;
+	(void)argc;
 	create_env_list(&env_list, envp);
 	while (1)
 	{

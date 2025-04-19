@@ -1,4 +1,0 @@
-[submodule "minishell_lib"]
-	path = minishell_lib
-	url = https://github.com/Lucieee0/minishell_lib.git
-	branch = main

@@ -6,7 +6,7 @@
 /*   By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 14:18:03 by lusimon           #+#    #+#             */
-/*   Updated: 2025/04/18 15:42:12 by lusimon          ###   ########.fr       */
+/*   Updated: 2025/04/19 11:27:53 by lusimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	chdir_failure(char *path)
 		else
 			printf("cd: error changing directory to %s\n", path);
 	}
+	free(path);
 }
 
 void	free_input_array(char **input_array)

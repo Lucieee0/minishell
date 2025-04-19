@@ -6,7 +6,7 @@
 /*   By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:23:51 by lusimon           #+#    #+#             */
-/*   Updated: 2025/04/18 15:33:32 by lusimon          ###   ########.fr       */
+/*   Updated: 2025/04/19 11:28:10 by lusimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	ft_cd_previous(t_env **env_list)
 	path = go_previous_path(env_list);
 	if (chdir(path) == -1)
 	{
-		free(path);
 		return (chdir_failure(path));
 	}
 	update_env(env_list, path);

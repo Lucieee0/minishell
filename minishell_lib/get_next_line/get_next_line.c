@@ -6,7 +6,7 @@
 /*   By: lusimon <lusimon@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:35:32 by lusimon           #+#    #+#             */
-/*   Updated: 2024/12/10 13:33:13 by lusimon          ###   ########.fr       */
+/*   Updated: 2025/04/19 12:30:49 by lusimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,18 +170,18 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main() {
-    int fd = open("test.txt", O_RDONLY);
-    char *line;
-	line = get_next_line(fd);
-    while (line != NULL) {
-        printf("%s", line);
-        free(line);
-		line = get_next_line(fd);
-    }
-    close(fd);
-	// system("leaks get_next_line");
-    return 0;
-}
+// int main() {
+//     int fd = open("test.txt", O_RDONLY);
+//     char *line;
+// 	line = get_next_line(fd);
+//     while (line != NULL) {
+//         printf("%s", line);
+//         free(line);
+// 		line = get_next_line(fd);
+//     }
+//     close(fd);
+// 	// system("leaks get_next_line");
+//     return 0;
+// }
